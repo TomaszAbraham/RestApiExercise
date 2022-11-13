@@ -1,11 +1,15 @@
 package pl.training.restapi.services;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public final class Calculator {
-
-    public static Double calculate(String operation, Integer a, Integer b) {
+    private final Double result;
+    
+    public Calculator(String operation, Integer a, Integer b) {
+        this.result = this.calculate(operation, a, b);
+    }
+    public Double getResult() {
+        return result;
+    }  
+    private Double calculate(String operation, Integer a, Integer b) {
         switch (operation) {
             case "add": return (double) (a + b);
             case "substract": return (double) (a - b);

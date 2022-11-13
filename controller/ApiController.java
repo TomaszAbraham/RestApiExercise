@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import pl.training.restapi.services.Calculator;
 
+
 @RestController
 public class ApiController {
     @GetMapping("/test") 
@@ -17,7 +18,9 @@ public class ApiController {
     }
     @GetMapping("/calculate/{operation}")
     @ResponseBody
-    public String calculate(@PathVariable String operation, @RequestParam Integer a, @RequestParam Integer b ) {
-        return "Result: " + Calculator.calculate(operation, a, b).toString();
-    }   
+    public Calculator calculate(@PathVariable String operation, @RequestParam Integer a, @RequestParam Integer b ) {
+        return new Calculator(operation, a, b);
+    }
+    
+     
 }
