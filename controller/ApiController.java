@@ -7,13 +7,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ApiController {
-	@GetMapping("/test") 
+    @GetMapping("/test") 
     public String getResult() {
-    	return "I am alive!";
-    	//throw new IllegalArgumentException("not implemented");
+        return "I am alive!";
+        //throw new IllegalArgumentException("not implemented");
     }
-	@GetMapping("/sum/{a}&{b}")
-	public Integer sum(@PathVariable Integer a, @PathVariable Integer b ) {
-		return a+b;
-	}
+    @GetMapping("/sum/{a}&{b}")
+    public Integer sum(@PathVariable Integer a, @PathVariable Integer b ) {
+        return a+b;
+    }
 }
+
