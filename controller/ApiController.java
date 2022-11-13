@@ -13,7 +13,7 @@ public class ApiController {
     	//throw new IllegalArgumentException("not implemented");
     }
 	@GetMapping("/sum/{a}&{b}")
-	public Integer Sum(@PathVariable Integer a, @PathVariable Integer b ) {
+	public Integer sum(@PathVariable Integer a, @PathVariable Integer b ) {
 		return a+b;
 	}
 }
