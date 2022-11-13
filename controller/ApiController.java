@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import pl.training.restapi.services.Calculator;
 
-
 @RestController
 public class ApiController {
     @GetMapping("/test") 
@@ -20,18 +19,5 @@ public class ApiController {
     @ResponseBody
     public String calculate(@PathVariable String operation, @RequestParam Integer a, @RequestParam Integer b ) {
         return "Result: " + Calculator.calculate(operation, a, b).toString();
-    }
-    /*public String calculate(@PathVariable String operation, @RequestParam Integer a, @RequestParam Integer b) {
-        switch (operation) {
-            case "add": return String.valueOf (a + b);
-            case "substract": return String.valueOf(a - b);
-            case "multiply": return String.valueOf (a * b);
-            case "dividet": {
-                if (b != 0) return String.valueOf (a / b);
-                else throw new IllegalArgumentException("Can not resolve division by zero!");
-            }
-        }
-        return "error";
-    }*/
-     
+    }   
 }
