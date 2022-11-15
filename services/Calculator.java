@@ -1,5 +1,8 @@
 package pl.training.restapi.services;
 
+import pl.training.restapi.exception.DivisionByZeroException;
+import pl.training.restapi.exception.WrongOperationException;
+
 public final class Calculator {
     private final Double result;
     
@@ -16,10 +19,10 @@ public final class Calculator {
             case "multiply": return (double) (a * b);
             case "divide": {
                 if (b != 0) return (double) ((double)a / (double)b);
-                else throw new IllegalArgumentException("Can not resolve division by zero!");
+                else throw new DivisionByZeroException();
             }
         }
-        throw new IllegalArgumentException("error");
+        throw new WrongOperationException(operation);
     }
 
 
