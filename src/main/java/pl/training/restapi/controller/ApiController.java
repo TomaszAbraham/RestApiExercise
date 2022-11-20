@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import lombok.RequiredArgsConstructor;
 import pl.training.restapi.model.Result;
 import pl.training.restapi.services.Calculator;
+import pl.training.restapi.services.Operations;
 
 
 @RestController
@@ -26,7 +27,7 @@ public class ApiController {
     
     @GetMapping("/calculate/{operation}")
     @ResponseBody
-    public Result calculate(@PathVariable String operation, @RequestParam String a, @RequestParam String b ) {
+    public Result calculate(@PathVariable Operations operation, @RequestParam String a, @RequestParam String b ) {
         return calculator.calculate(operation, a, b);
     }  
 }

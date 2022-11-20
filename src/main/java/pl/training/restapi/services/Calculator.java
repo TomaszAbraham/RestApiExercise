@@ -3,7 +3,6 @@ package pl.training.restapi.services;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import pl.training.restapi.exception.WrongOperationException;
 import pl.training.restapi.exception.WrongParameterException;
 import pl.training.restapi.model.Result;
 
@@ -11,7 +10,7 @@ import pl.training.restapi.model.Result;
 @RequiredArgsConstructor
 public class Calculator {
         
-    public Result calculate(String operation, String strA, String strB) {
+    public Result calculate(Operations operation, String strA, String strB) {
         Double a = null;
         Double b = null;
         try {
@@ -24,10 +23,7 @@ public class Calculator {
         }catch(NumberFormatException e) {
             throw new WrongParameterException(strB);
         }
-        for (Operation op: Operation.values()) {
-            if (op.toString().equalsIgnoreCase(operation)) return new Result(op.calc(a, b));
-        }
-        throw new WrongOperationException(operation);
+        return new Result(operation.calc(a, b));
     }
 
 }
